@@ -3,6 +3,10 @@ Tired of picking the next game to play? I certainly was after running a weekley 
 
 This app takes a list of games provided in a JSON file and selects them at random using either the GUI or CLI interface. The games are weighted by user ranking within the JSON file and the app attempts to play all games somewhat equally. The randomizer will only pick games that support the current number of players. By default, it will not repeat the same game during a single session. Play stats are saved to a file to keep track of how many times each game has been played.
 
+![jackbox_game_randomizer](https://github.com/matazar/game_randomizer/assets/6932247/a99a113b-7cc4-4939-b476-6b4ecf34fde6) ![boardgame_randomizer](https://github.com/matazar/game_randomizer/assets/6932247/7e2bd0b6-647a-40d0-8737-d751d4462247)
+
+
+
 # Install
 To run the application, you first need to ensure Python 3 is installed on your system, then you can either clone the repo or install the package using pip. 
 
