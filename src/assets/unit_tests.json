@@ -1,0 +1,26 @@
+{
+    "Games": {
+        "Game1": {
+            "pack": "Pack1",
+            "players": 4,
+            "description": "A fun game for 4 players.",
+            "image": "Game1.png",
+            "weight": 1
+        },
+        "Game2": {
+            "pack": "Pack2",
+            "players": 2,
+            "description": "A game for 2 players.",
+            "image": "Game2.png",
+            "weight": 1
+        }
+    },
+    "Settings": {
+        "Max_Players": 4,
+        "Default_Players": 2,
+        "Logo": "logo.png",
+        "Pack_Label": "Test Pack",
+        "Title": "Unit Tests Randomizer",
+        "Image_Directory": "unit_tests"
+    }
+}

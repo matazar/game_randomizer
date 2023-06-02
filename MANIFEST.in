@@ -1,0 +1,2 @@
+graft src/assets
+recursive-include src/tests *.py *.au3

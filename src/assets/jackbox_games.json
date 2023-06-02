@@ -1,0 +1,313 @@
+{
+    "Settings": {
+        "Max_Players": 8,
+        "Default_Players": 7,
+        "Logo": "logo.png",
+        "Pack_Label": "",
+        "Title": "Jackbox Games Randomizer",
+        "Image_Directory": "jackbox_games"
+    },
+    "Games": {    
+        "You Don't Know Jack 2015": {
+            "pack": "Jackbox Party Pack",
+            "description": "The smart-ass trivia show that started it all!",
+            "image": "YouDontKnowJack2015.jpg",
+            "players": 4,
+            "weight": 0.8
+        },
+        "Drawful": {
+            "pack": "Jackbox Party Pack",
+            "description": "The drawing game that takes all other drawing games and draws little mustaches on them. Can\u2019t draw? No problem! It\u2019s funnier that way!",
+            "image": "Drawful.jpg",
+            "players": 8,
+            "weight": 0.8
+        },
+        "Word Spud": {
+            "pack": "Jackbox Party Pack",
+            "description": "Keep the words rolling all night! Just finish the word coming toward you, like \"Mail___.\" Mail enhancement, you say? You nailed it.",
+            "image": "WordSpud.jpg",
+            "players": 8,
+            "weight": 0.8
+        },
+        "Lie Swatters": {
+            "pack": "Jackbox Party Pack",
+            "description": "Do lobsters pee out of their heads? Did Japan vote the instant noodle the top invention of the 20th century? Or are you calling BS?",
+            "image": "LieSwatter.jpg",
+            "players": 100,
+            "weight": 0.8
+        },
+        "Fibbage XL": {
+            "pack": "Jackbox Party Pack",
+            "description": "Fool your friends with your lies, avoid theirs, and find the (usually outrageous) truth. \u201cThe mayor of Rabbit Hash, Kentucky is a ____.\u201d Go!",
+            "image": "FibbageXL.jpg",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Fibbage 2": {
+            "pack": "Jackbox Party Pack 2",
+            "description": "More Fibbage! Lie to your friends, avoid their lies, and spot the truth. \u201cIn Arizona, you must obtain a permit to feed ______ to pigs.\u201d Go!",
+            "image": "Fibbage2.jpg",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Earwax": {
+            "pack": "Jackbox Party Pack 2",
+            "description": "Cow moo? Huge explosion? Or tiny fart? Which to choose? It's the sound effects game that will leave you up to your ears in laughter!",
+            "image": "Earwax.jpg",
+            "players": 8,
+            "weight": 0.4
+        },
+        "Bidiots": {
+            "pack": "Jackbox Party Pack 2",
+            "description": "Outbid your opponents for absurd art \u2013 drawn by players themselves \u2013 and win this strangely competitive auction game! Don\u2019t be a bidiot!",
+            "image": "Bidiots.jpg",
+            "players": 6,
+            "weight": 0.8
+        },
+        "Quiplash XL": {
+            "pack": "Jackbox Party Pack 2",
+            "description": "The laugh-a-minute battle of wits and wittiness in its HUGEST form! Come up with \u201cthe best name to give an ugly baby\u201d and win!",
+            "image": "QuiplashXL.jpg",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Bomb Corp.": {
+            "pack": "Jackbox Party Pack 2",
+            "description": "Welcome to Bomb Corp. Interns of your kind must help defuse bombs in our office. It\u2019s a weird office full of bombs.",
+            "image": "BombCorp.jpg",
+            "players": 4,
+            "weight": 1.0
+        },
+        "Quiplash 2": {
+            "pack": "Jackbox Party Pack 3",
+            "description": "The say-anything party game returns. Come up with \"a bad substitute for dental floss\" and win! Tired of our weird prompts? Try the new Make Your Own mode!",
+            "image": "Quiplash2.jpg",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Trivia Murder Party": {
+            "pack": "Jackbox Party Pack 3",
+            "description": "Be the last to survive a serial killer's absurd trivia game show. But it's fun!",
+            "image": "TriviaMurderParty.jpg",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Guesspionage": {
+            "pack": "Jackbox Party Pack 3",
+            "description": "What percentage of people have buried something in the woods? Ridden in the back of a cop car? Have a crush on someone they work with? Guess right and win!",
+            "image": "Guesspionage.jpg",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Tee K.O.": {
+            "pack": "Jackbox Party Pack 3",
+            "description": "Draw pictures, write slogans, then swap them around to create your own custom t-shirt warriors. Only the most worthy novelty t-shirt will leave the tournament alive.",
+            "image": "TeeK.O.jpg",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Fibbage 3": {
+            "pack": "Jackbox Party Pack 4",
+            "description": "Fib your way through all-new question types and the all-newer game mode Fibbage: Enough About You. Guess the weird facts about your fellow players!",
+            "image": "Fibbage3.png",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Survive the Internet": {
+            "pack": "Jackbox Party Pack 4",
+            "description": "Log on and strap in! It\u2019s survival of the funniest as you playfully take your friends out of context across the World Wide Web.",
+            "image": "SurviveTheInternet.jpg",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Bracketeering": {
+            "pack": "Jackbox Party Pack 4",
+            "description": "The deranged debate tournament! \u201cWhat\u2019s the best vegetable for Benedict Cumberbatch to voice in a movie?\u201d Place smart bets on what will win stupid arguments.",
+            "image": "Bracketeering.jpg",
+            "players": 16,
+            "weight": 0.8
+        },
+        "Civic Doodle": {
+            "pack": "Jackbox Party Pack 4",
+            "description": "You\u2019ve been hired to create murals all over Doodle Valley. Compete to see who can make the best additions in your attempt to \u201cbeautify\u201d the city.",
+            "image": "CivicDoodle.jpg",
+            "players": 8,
+            "weight": 1.0
+        },
+        "You Don't Know Jack: Full Stream": {
+            "pack": "Jackbox Party Pack 5",
+            "description": "Bring the classic irreverent trivia phenomenon to the wildly popular and totally fictional streaming service Binjpipe! Their terms of service explicitly states you\u2019ll love it!",
+            "image": "YouDontKnowJackFullStream.png",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Split the Room": {
+            "pack": "Jackbox Party Pack 5",
+            "description": "The what-if game where anything is possible! Create strange and divisive hypothetical situations.",
+            "image": "SplittheRoom.png",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Mad Verse City": {
+            "pack": "Jackbox Party Pack 5",
+            "description": "The robot rap battle game! Spit mad rhymes against your friends to see who\u2019s the dopest MC and who\u2019s the wackest cat.",
+            "image": "MadVerseCity.jpg",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Patently Stupid": {
+            "pack": "Jackbox Party Pack 5",
+            "description": "The inventive drawing game where you solve bizarre problems! Pitch your ideas to rake in the cash!",
+            "image": "PatentlyStupid.png",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Trivia Murder Party 2": {
+            "pack": "Jackbox Party Pack 6",
+            "description": "A serial killer is running an absurd trivia game out of the family-run Murder Hotel he grew up in. Can you survive?",
+            "image": "TriviaMurderParty2.jpg",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Role Models": {
+            "pack": "Jackbox Party Pack 6",
+            "description": "Everybody\u2019s somebody, so who are you? The planner? The flake? The sassy one? Step into the lab and find out.",
+            "image": "RoleModels.jpg",
+            "players": 6,
+            "weight": 1.0
+        },
+        "Joke Boat": {
+            "pack": "Jackbox Party Pack 6",
+            "description": "Ahoy! You\u2019re an amateur comic on a fourth-rate cruise ship. Do you have what it takes to win the talent show?",
+            "image": "JokeBoat.jpg",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Dictionarium": {
+            "pack": "Jackbox Party Pack 6",
+            "description": "Humans have been inventing words and phrases for centuries. Now it\u2019s your turn to contribute an entry to the pages of the Dictionarium.",
+            "image": "Dictionarium.png",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Push the Button": {
+            "pack": "Jackbox Party Pack 6",
+            "description": "Danger! Shapeshifting aliens have infiltrated your starship. Can you and your crew find them before time runs out?",
+            "image": "PushTheButton.jpg",
+            "players": 10,
+            "weight": 0.8
+        },
+        "Quiplash 3": {
+            "pack": "Jackbox Party Pack 7",
+            "description": "The Threequel to the say-anything party game! Answer the prompts and make your friends laugh\u2026 hopefully.",
+            "image": "Quiplash3.jpg",
+            "players": 8,
+            "weight": 1.0
+        },
+        "The Devils and the Details": {
+            "pack": "Jackbox Party Pack 7",
+            "description": "You're a family of devils who've moved to an average suburb. Can you survive the daily torture of human life?",
+            "image": "TheDevilsandtheDetails.jpg",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Champ'd Up": {
+            "pack": "Jackbox Party Pack 7",
+            "description": "Enter the Scrawliseum, where characters fight over weird titles. Can you take down the heavy favorite?",
+            "image": "ChampdUp.jpg",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Talking Points": {
+            "pack": "Jackbox Party Pack 7",
+            "description": "Give a speech about pictures you haven't seen before. It doesn\u2019t matter if it makes sense, it\u2019s more fun if it doesn\u2019t!",
+            "image": "TalkingPoints.png",
+            "players": 8,
+            "weight": 0.9
+        },
+        "Blather 'Round": {
+            "pack": "Jackbox Party Pack 7",
+            "description": "A pop culture guessing game where nothing sounds quite right! It's a good fun time experience.",
+            "image": "BlatherRound.jpg",
+            "players": 6,
+            "weight": 1.0
+        },
+        "Drawful 2": {
+            "pack": "Drawful 2",
+            "description": "Drawful is back to save your next party with Drawful 2, which challenges players to draw ridiculous prompts on their smartphones and tablets.",
+            "image": "Drawful2.png",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Job Job": {
+            "pack": "Jackbox Party Pack 8",
+            "description": "Use other people's words to create unique and funny answers to classic job interview questions. Go head to head to see who scores the job!",
+            "image": "JobJob.png",
+            "players": 10,
+            "weight": 1.0
+        },
+        "Poll Mine": {
+            "pack": "Jackbox Party Pack 8",
+            "description": "A survey game that's all about YOU! Split into teams and see who can escape from the witch's lair! Players individually rank their choices to a difficult question, then must guess how the group answered as a whole. How well do you know your friends?!",
+            "image": "PollMine.png",
+            "players": 10,
+            "weight": 1.0
+        },
+        "Drawful Animate": {
+            "pack": "Jackbox Party Pack 8",
+            "description": "It's alive! The guessing game with terrible drawings and hilariously wrong answers makes a dynamic return. In this revamped title, players create looping, two-frame animations based on weird and random titles.",
+            "image": "DrawfulAnimate.png",
+            "players": 10,
+            "weight": 1.0
+        },
+        "The Wheel of Enormous Proportions": {
+            "pack": "Jackbox Party Pack 8",
+            "description": "Trivia has never been so large! A fantastic, mystical wheel challenges you with a variety of trivia prompts. Winners are awarded slices of the Wheel's face with a chance to win big with each nail-biting spin. In the end, one player will have their most burning question answered by the great Wheel.",
+            "image": "TheWheelofEnormousProportions.png",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Weapons Drawn": {
+            "pack": "Jackbox Party Pack 8",
+            "description": "A social deduction game where everyone is both a murderer and a detective. Players doodle all the clues, hiding a letter from their name in the weapon drawings. Can you solve murders while trying to get away with your own?",
+            "image": "WeaponsDrawn.png",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Fibbage 4": {
+            "pack": "Jackbox Party Pack 9",
+            "description": "The hilarious bluffing party game returns with an all new Final Fibbage, video questions, fan-submitted questions, and Fibbage Enough About You mode! It’s a game so beloved that we decided to slap a 4 on it. ",
+            "image": "Fibbage4.png",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Quixort": {
+            "pack": "Jackbox Party Pack 9",
+            "description": "In this trivia sorting factory, work with your team to sort falling answers into their proper order before they hit the floor! Or, play the single player mode and see how many blocks you can sort before topping out. It’s as easy as A, C, B!",
+            "image": "Quixort.png",
+            "players": 10,
+            "weight": 1.0
+        },
+        "Junktopia": {
+            "pack": "Jackbox Party Pack 9",
+            "description": "A strange wizard has turned you into a frog! Create hilarious backstories for weird objects and then get them appraised. The player with the most valuable items becomes human again!",
+            "image": "Junktopia.png",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Nonsensory": {
+            "pack": "Jackbox Party Pack 9",
+            "description": "Professor Nanners is here to test your NSP (Nonsensory Perception) in this drawing, writing, and guessing game! How close can you get to guessing where another player’s prompt ranks on the silliest of scales?",
+            "image": "Nonsensory.png",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Roomerang": {
+            "pack": "Jackbox Party Pack 9",
+            "description": "Channel your inner reality TV star in an attempt to come out on top! Respond to prompts, bring the competition and role-play to avoid being voted out. Never fear though, even when you’re out you’ll find yourself Roomerang-ed right back into the drama!",
+            "image": "Roomerang.png",
+            "players": 9,
+            "weight": 1.0
+        }
+    }
+}

@@ -1,0 +1,89 @@
+{
+    "Settings": {
+        "Title": "Boardgame Randomizer",
+        "Max_Players": 6,
+        "Default_Players": 2,
+        "Pack_Label": "",
+        "Logo": "logo.png",
+        "Image_Directory": "boardgames"
+    },
+    "Games": {
+        "Machi Koro": {
+            "pack": "",
+            "description": "Players roll dice to earn coins, with which they develop their city, aiming to win the game by being the first player to complete a number of in-game landmarks.",
+            "image": "MachiKoro.png",
+            "players": 4,
+            "weight": 1.0
+        },
+        "A Ticket to Ride": {
+            "pack": "",
+            "description": "A cross-country train adventure in which players collect and play matching train cards to claim railway routes connecting cities throughout.",
+            "image": "TicketToRide.png",
+            "players": 5,
+            "weight": 1.0
+        },
+        "Stardew Valley: The Board Game": {
+            "pack": "",
+            "description": "Build your farm, grow crops, and explore the Valley in this cooperative board game for 1 to 4 players.",
+            "image": "StardewValley.png",
+            "players": 4,
+            "weight": 1.0
+        },
+        "Life": {
+            "pack": "",
+            "description": "A game of Life is a journey through the milestones of life such as going to college, getting a job, getting married, buying a house, and retiring.",
+            "image": "Life.png",
+            "players": 6,
+            "weight": 1.0
+        },
+        "Scrabble": {
+            "pack": "",
+            "description": "A word game in which two to four players score points by placing tiles, each bearing a single letter, onto a game board divided into a grid of squares.",
+            "image": "Scrabble.png",
+            "players": 4,
+            "weight": 1.0
+        },
+        "Blokus": {
+            "pack": "",
+            "description": "Each player has 21 pieces to play one at a time, but only touching at the corners. When no more plays can be made, the game ends and the player with the least number of squares wins.",
+            "image": "Blokus.png",
+            "players": 4,
+            "weight": 1.0
+        },
+        "Clue": {
+            "pack": "",
+            "description": "A murder mystery game. Players take on one of the characters and move around the board to collect clues and deduce which suspect committed the murder, with which weapon, and in which room.",
+            "image": "Clue.png",
+            "players": 6,
+            "weight": 1.0
+        },
+        "Battleship": {
+            "pack": "",
+            "description": "A strategy type guessing game for two players. It was played on ruled grids on which each player's fleet of ships were marked. The locations of the fleet are concealed from the other player.",
+            "image": "Battleship.png",
+            "players": 2,
+            "weight": 1.0
+        },
+        "Guess Who": {
+            "pack": "",
+            "description": "Two-player character guessing game created. Each player starts the game with a board that includes cartoon images of 24 people and their first names.",
+            "image": "GuessWho.png",
+            "players": 2,
+            "weight": 1.0
+        },
+        "Settlers of Catan": {
+            "pack": "",
+            "description": "Players try to be the dominant force on the island of Catan by building settlements, cities, and roads. Resource cards allow players to build, but the robber can disrupt plans.",
+            "image": "Catan.png",
+            "players": 4,
+            "weight": 1.0
+        },
+        "Doctor Who Monopoly": {
+            "pack": "",
+            "description": "An iteration of the classic board game Monopoly that features characters, locations, and elements from the Doctor Who universe.",
+            "image": "Monopoly.png",
+            "players": 6,
+            "weight": 1.0
+        }
+    }
+}
