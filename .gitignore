@@ -166,3 +166,6 @@ pyvenv.cfg
 
 # package installs here
 include/game_randomizer/
+
+# example gifs
+examples/
