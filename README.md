@@ -9,9 +9,11 @@ To run the application, you first need to ensure Python 3 is installed on your s
 ## GIT Clone
 To install a copy of the application from Github:
 
-1. Clone the repository to your computer
+1. Clone the repository to your computer  
 ```git clone git@github.com:matazar/game_randomizer.git game_randomizer```
-2. Install the game randomizer application
+2. Change to the game_randomizer directory  
+```cd game_randomizer```
+3. Install the game randomizer application  
 ```python3 setup.py install```
 
 ## PIP
@@ -30,6 +32,7 @@ There are currenty two game lists available:
 The json files and banner images are currently stored in the python package assets folder found under game_randomizer/assets folder found under the python site-packages. It's possible to add additional game lists by adding a json file to the folder and banner images to a subfolder within. Future releases should allow for custom game lists to be stored in a different location.
 
 # Usage
+You can run the game application in GUI or CLI mode by running the following commands with in the command prompt or terminal.
 
 GUI:  
 ```game_randomizer jackbox_games```  
