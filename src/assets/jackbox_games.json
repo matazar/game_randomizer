@@ -308,6 +308,41 @@
             "image": "Roomerang.png",
             "players": 9,
             "weight": 1.0
+        },
+        "FixyText": {
+            "pack": "Jackbox Party Pack 10",
+            "description": "Ever wished someone would answer your texts for you? Imagined the masterful comebacks you and your friends would create if you mashed all your brains together? You’re in luck! This game lets you play out that fantasy with all of the chaos, and none of the backlash!",
+            "image": "FixyText.png",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Tee K.O. 2": {
+            "pack": "Jackbox Party Pack 10",
+            "description": "Create the ultimate garment out of your own weird drawings and slogans, then send it into battle. But with new drawing tools, new clothing options like hoodies and tank tops, and a new button-pounding final round… who will emerge as the next champion of Tee Shirt Island?",
+            "image": "TeeKO2.png",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Dodo Re Mi": {
+            "pack": "Jackbox Party Pack 10",
+            "description": "Hello gorgeous nature. Welcome to an uncharted jungle, inhabited by musical birds who play songs for a carnivorous plant that MIGHT eat them, if they don’t play their notes accurately. Are they dodos? No. Did they evolve from dodos? Maybe…don’t overthink it. We didn’t",
+            "image": "DodoReMi.png",
+            "players": 9,
+            "weight": 1.0
+        },
+        "Time Jinx": {
+            "pack": "Jackbox Party Pack 10",
+            "description": "What would you do if you had a time machine? Would you go back and try to fix some mistakes? Would you travel into the future to see who you’ve become? No, of course not! You’d use it to play an immersive trivia game!",
+            "image": "TimeJinx.jpg",
+            "players": 8,
+            "weight": 1.0
+        },
+        "Hypnotorious": {
+            "pack": "Jackbox Party Pack 10",
+            "description": "In Hypnotorious, players are attending a hypnotist’s show, where, as you might expect, they get hypnotized. Each player will take on a new, unique identity such as Frankenstein, a snowman or a carrot. They will then be asked to answer questions as their character would.",
+            "image": "Hypnotorious.png",
+            "players": 8,
+            "weight": 1.0
         }
     }
 }
