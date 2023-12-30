@@ -5,6 +5,10 @@ class CLI(object):
     """
     Simple CLI menu for the app.
     """
+    WELCOME_MESSAGE = \
+        '\n*****************\nGame Randomizer!\n*****************\n'
+    INVALID_NUMBER_MESSAGE = 'That didn\'t seem like a number...'
+
     def __init__(self, randomizer, verbose):
         """
         Set up the variables we need.
@@ -17,17 +21,16 @@ class CLI(object):
         """
         Run the game by keeping it in a loop.
         """
-        # Print the welcome message.
-        print('\n*****************\nGame Randomizer!\n*****************\n')
+        print(self.WELCOME_MESSAGE)
         # Prompt user for players
         if not self.players:
             # If we can't INT it, exit.
             try:
                 self.players = int(input('How many players? '))
             except ValueError:
-                sys.exit('That didn\'t seem like a number...')
+                sys.exit(self.INVALID_NUMBER_MESSAGE)
         # Start the program loop.
-        while 0 == 0:
+        while True:
             # Call the menu function
             game, info = self.menu()
             # Output the game info.
@@ -55,7 +58,7 @@ class CLI(object):
                 # Return NOTHING!
                 return None, None
             except ValueError:
-                sys.exit('That didn\'t seem like a number...')
+                sys.exit(self.INVALID_NUMBER_MESSAGE)
         # Try again if we didn't get a valid input.
         return self.menu()
 
@@ -69,4 +72,4 @@ class CLI(object):
         print('Description: %s' % (info['description']))
         print('**********')
         # Wait for input before moving on.
-        return input('\nHit enter to continue...')
+        input('\nHit enter to continue...')

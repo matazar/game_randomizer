@@ -5,7 +5,7 @@ with open('README.md', 'r', encoding='utf-8') as fh:
 
 setuptools.setup(
     name='game_randomizer',
-    version='0.1',
+    version='0.2',
     author='Mat Martell',
     author_email='dev@matazar.net',
     description='A simple GUI/CLI app for selecting a random game based ' +
@@ -26,6 +26,7 @@ setuptools.setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.11',
     ],
     python_requires='>=3.7',
     test_suite="tests",
@@ -39,7 +40,8 @@ setuptools.setup(
     },
     entry_points={
         "console_scripts": [
-            "game_randomizer=game_randomizer.app:main",
+            "game_randomizer=game_randomizer.app:gui_app",
+            "game_randomizer_cli=game_randomizer.app:cli_app",
         ],
     },
 )

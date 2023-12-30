@@ -4,6 +4,8 @@ import PIL.ImageTk
 import os
 import random
 import time
+import subprocess
+import platform
 from pkg_resources import resource_filename
 
 
@@ -17,23 +19,166 @@ based on a JSON file of games.
 """
 
 
+class SelectJsonGUI(object):
+    """
+    GUI client for selecting a .json file.
+    """
+    def __init__(self):
+        # Set the title
+        self.title = "Select Game List"
+        # Set up the window size
+        self.window_height = 180
+        self.window_width = 340
+        self.background_colour = "grey25"
+        # Set the selected variable
+        self.selected = None
+        # Retrieve list of .json files in the directory
+        self.assets_dir = resource_filename('game_randomizer', 'assets')
+        self.json_files = [f[:-5] for f in os.listdir(self.assets_dir)
+                           if f.endswith('.json')]
+
+        # Create the main app window
+        self.rootWindow()
+        self.frames = {}
+        # Setup/config window
+        self.mainframe = self.frameInit()
+        self.frameLayout()
+
+    def __call__(self):
+        """
+        Run the GUI.
+        """
+        self.root.mainloop()
+        return self.selected
+
+    def frameInit(self):
+        """
+        Creates a frame based on our default settings.
+        """
+        frame = tk.Frame(self.root, width=self.window_width,
+                         height=self.window_height,
+                         background=self.background_colour)
+        frame.grid(column=6, row=6, sticky="nsew",)
+
+    def rootWindow(self):
+        """
+        Set up the root window.
+        """
+        self.root = tk.Tk()
+        self.root.title(self.title)
+        self.root.geometry('%sx%s' % (self.window_width, self.window_height))
+        self.root.configure(background=self.background_colour)
+        self.root.resizable(False, False)
+
+    def frameLayout(self):
+        """
+        Sets the frame layout.
+        """
+        # Label for json dropdown selector
+        self.label_dropdown = tk.Label(self.mainframe, text="Select Games: ",
+                                       background=self.background_colour,
+                                       font=("Arial", 12), fg="white")
+        self.label_dropdown.grid(row=0, column=0, columnspan=2,
+                                 pady=(15, 0), padx=(15, 10))
+
+        # Settings for the dropdown menu
+        self.selected_file = tk.StringVar(self.root)
+        # Default to jackbox games if it exists, otherwise first in list.
+        if self.json_files:
+            if 'jackbox_games' in self.json_files:
+                self.selected_file.set('jackbox_games')
+            else:
+                self.selected_file.set(self.json_files[0])
+        else:
+            self.selected_file.set("No .json files found")
+            self.json_files = ["No .json files found"]
+        # Set up the dropdown menu.
+        self.dropdown = tk.OptionMenu(self.root, self.selected_file,
+                                      *self.json_files)
+        self.dropdown.configure(background=self.background_colour,
+                                highlightcolor=self.background_colour,
+                                highlightthickness=0, width=15,
+                                font=("Arial", 12), fg="white")
+        self.dropdown.grid(row=0, column=2, columnspan=4,
+                           pady=(20, 0), padx=(10, 10))
+
+        # Label for assets folder.
+        self.label_open_folder = tk.Label(self.mainframe,
+                                          text="Browse Game Data: ",
+                                          background=self.background_colour,
+                                          font=("Arial", 12), fg="white")
+        self.label_open_folder.grid(row=2, column=0, columnspan=3,
+                                    pady=(30, 0), padx=(10, 0))
+        # Open assets folder button.
+        self.open_folder_btn = tk.Button(self.mainframe, text='\U0001F4C1',
+                                         command=self.open_folder,
+                                         font=("Arial", 12), fg="white")
+        self.open_folder_btn.configure(background=self.background_colour,
+                                       highlightcolor=self.background_colour,
+                                       highlightthickness=0)
+        self.open_folder_btn.grid(row=2, column=3,
+                                  pady=(25, 0), padx=(20, 0))
+        # Load button
+        self.load_btn = tk.Button(self.mainframe, text="Load",
+                                  command=self.select,
+                                  font=("Arial", 12), fg="white")
+        self.load_btn.configure(background=self.background_colour,
+                                highlightcolor=self.background_colour,
+                                highlightthickness=0)
+        self.load_btn.grid(row=4, column=1,
+                           pady=(30, 0), padx=(30, 0))
+        # Exit button
+        self.exit_btn = tk.Button(self.mainframe, text="Exit",
+                                  command=self.exit,
+                                  font=("Arial", 12), fg="white")
+        self.exit_btn.configure(background=self.background_colour,
+                                highlightcolor=self.background_colour,
+                                highlightthickness=0)
+        self.exit_btn.grid(row=4, column=4,
+                           pady=(30, 0), padx=(0, 30))
+
+    def open_folder(self):
+        """
+        Opens the folder containing the .json files.
+        """
+        if platform.system() == "Windows":
+            os.startfile(self.assets_dir)
+        elif platform.system() == "Darwin":  # for MacOS
+            subprocess.Popen(["open", self.assets_dir])
+        else:  # assumed to be Linux/Unix
+            subprocess.Popen(["xdg-open", self.assets_dir])
+
+    def select(self):
+        """
+        Get the selected .json file and exit the GUI.
+        """
+        self.selected = self.selected_file.get()
+        return self.exit()
+
+    def exit(self):
+        """
+        Exit the GUI.
+        """
+        self.root.destroy()
+        return self.selected
+
+
 class GUI(object):
     """
     GUI client for the game randomizer.
     """
-    def __init__(self, randomizer, verbose):
+    def __init__(self, randomizer):
         """
         Set up some basic variables for the GUI
         """
-        # Set up the variables we need.
-        self.verbose = verbose
+        # Set randomize variable.
         self.randomizer = randomizer
         # Get our settings.
         self.game_setting = randomizer.settings()
         # Set the title based off the json file.
         self.title = self.game_setting['Title']
         # Set up the window size.
-        self.window_height = 600
+        self.window_height = 620
         self.window_width = 480
         # Set up logo path.
         self.default_img = \
@@ -130,7 +275,7 @@ class GUI(object):
         self.desc_label = tk.Label(self.mainframe,
                                    textvariable=self.description,
                                    font=('Arial', 10),
-                                   wraplength=420, height=3,
+                                   wraplength=420, height=5,
                                    background=self.background_colour)
         # Options
         self.enable_pretty_roll = tk.IntVar(value=1)
@@ -155,6 +300,10 @@ class GUI(object):
                                           font=('Arial', 10),
                                           height=1,
                                           background=self.background_colour)
+        # Empty row for keeping things spaced correctly
+        self.blank_label = tk.Label(self.mainframe, text="",
+                                    background=self.background_colour)
+        self.blank_label.grid(row=6, column=0, pady=(10, 0), columnspan=3)
         # Random Selection Button
         roll_img = PIL.Image.open(
             resource_filename('game_randomizer',
@@ -232,6 +381,7 @@ class GUI(object):
         self.player_prompt.grid_forget()
         self.repeat_check.grid_forget()
         self.proll_check.grid_forget()
+        self.blank_label.grid_forget()
         # Get a copy of the current occurrences.
         self.stats = self.randomizer.view_stats()
         # Check if user doesn't want to play the same game twice.
@@ -245,8 +395,6 @@ class GUI(object):
         # Select the random game
         game, game_info = self.randomizer.pick_game(self.players.get(),
                                                     last_game)
-        if self.verbose:
-            print(f'Random game selection is "{game}"')
         # Update the screen
         img = PIL.Image.open(
             resource_filename('game_randomizer',
@@ -277,6 +425,7 @@ class GUI(object):
                                 sticky='w')
         self.repeat_check.grid(row=5, column=0, pady=0, columnspan=3)
         self.proll_check.grid(row=4, column=0, pady=0, columnspan=3)
+        self.blank_label.grid(row=6, column=0, pady=(14, 0), columnspan=3)
         # Reset
         img = PIL.Image.open(self.default_img)
         img = img.resize((420, 192), PIL.Image.Resampling.LANCZOS)
@@ -301,6 +450,7 @@ class GUI(object):
         # Set up an OK button for closing the pop-up.
         B1 = tk.Button(self.popup, text="OK", command=self.popup.destroy)
         B1.pack()
+
         # Run the pop-up
         self.popup.mainloop()
 

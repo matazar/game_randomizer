@@ -2,16 +2,16 @@ import os
 import random
 import argparse
 import json
-from .gui import GUI
+from .gui import GUI, SelectJsonGUI
 from .cli import CLI
 from pkg_resources import resource_filename
 
 
 class Randomizer(object):
     """
-    Randomizer class to handle the game picking.
+    Randomizer class to handle the random game selection.
     """
-    def __init__(self, games, verbose):
+    def __init__(self, games, verbose=False):
         """
         Set up our variables and load the games json file.
         """
@@ -28,7 +28,7 @@ class Randomizer(object):
 
     def load_info(self, games):
         """
-        Loads the data from the JSON file.
+        Loads the games data from the JSON file.
         """
         # Figure out the path based on the current environment.
         json_path = resource_filename('game_randomizer',
@@ -37,7 +37,7 @@ class Randomizer(object):
                                           f'{games}.json'))
         if self.verbose:
             print(f'Loading games from { json_path }')
-        # Open the file
+        # Open the file, parse the games/settings.
         with open(json_path) as f:
             results = json.loads(f.read())
         # Return the games and settings.
@@ -141,42 +141,42 @@ class Randomizer(object):
         return game, self.game_info[game]
 
 
-def main_app(games_json, useCLI, verbose):
+def cli_app():
     """
     Main App.
     """
-    # Create instance with game data.
-    randomizer = Randomizer(games_json, verbose)
-    if useCLI:
-        # CLI version
-        p = CLI(randomizer, verbose)
-        p()
-    else:
-        # GUI version
-        g = GUI(randomizer, verbose)
-        g()
-
-
-def main():
-    """
-    Set up main entry point using argparse.
-    """
     parser = argparse.ArgumentParser(
         description="Run the Game Randomizer! A GUI random game selector.")
-    parser.add_argument('-v', '--verbose',
+    parser.add_argument('-v', '--verbose', default=False,
                         help='Enable verbose output.', action='store_true')
-    parser.add_argument('-c', '--cli',
-                        help="Run the CLI game randomizer.",
-                        action='store_true')
-    parser.add_argument('games',
+    parser.add_argument('games_json', type=str,
                         choices=['boardgames', 'jackbox_games', 'unit_tests'],
                         help='The name of the JSON file ' +
                              'containing the games information.')
-    parser.parse_args()
     args = parser.parse_args()
+    # Create instance with game data.
+    randomizer = Randomizer(args.games_json, args.verbose)
+    # CLI version
+    p = CLI(randomizer, args.verbose)
+    p()
 
-    main_app(args.games, args.cli, args.verbose)
+
+def gui_app():
+    """
+    Main App.
+    """
+    # Prompt for JSON
+    j = SelectJsonGUI()
+    games_json = j()
+    if games_json is None:
+        return None
+    else:
+        # Create instance with game data.
+        randomizer = Randomizer(games_json)
+        # GUI version
+        g = GUI(randomizer)
+        g()
 
 
 if __name__ == "__main__":
-    main()
+    gui_app()
