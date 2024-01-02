@@ -2,7 +2,7 @@ import os
 import random
 import argparse
 import json
-from .gui import GUI, SelectJsonGUI
+from .gui import RandomGUI, JSONGUI
 from .cli import CLI
 from pkg_resources import resource_filename
 
@@ -166,7 +166,7 @@ def gui_app():
     Main App.
     """
     # Prompt for JSON
-    j = SelectJsonGUI()
+    j = JSONGUI()
     games_json = j()
     if games_json is None:
         return None
@@ -174,7 +174,7 @@ def gui_app():
         # Create instance with game data.
         randomizer = Randomizer(games_json)
         # GUI version
-        g = GUI(randomizer)
+        g = RandomGUI(randomizer)
         g()
 
 

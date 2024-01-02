@@ -25,11 +25,11 @@ Local $AboutButton = ["About", 250, 615]
 Local $CloseAboutButton = ["CloseAbout", 125, 215]
 Local $ExitButton = ["Exit", 410, 615]
 ; JSON Selector
-Local $SelectJSON_ExitButton = ["Exit", 260, 170]
+Local $SelectJSON_ExitButton = ["Exit", 230, 170]
 Local $SelectJSON_OpenDirButton = ["Open Directory", 220, 120]
 Local $SelectJSON_Dropdown = ["JSON Dropdown", 220, 60]
 Local $SelectJSON_DropdownUnitTest = ["Unit Tests", 220, 130]
-Local $SelectJSON_Load = ["Load", 130, 170]
+Local $SelectJSON_Load = ["Load", 110, 170]
 
 ; Some simple functions
 Func ButtonClick($bName, $time = 0)

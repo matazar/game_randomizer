@@ -19,58 +19,108 @@ based on a JSON file of games.
 """
 
 
-class SelectJsonGUI(object):
+class GUI(object):
     """
-    GUI client for selecting a .json file.
+    Base class for shared GUI functionality.
     """
-    def __init__(self):
-        # Set the title
-        self.title = "Select Game List"
-        # Set up the window size
-        self.window_height = 180
-        self.window_width = 340
-        self.background_colour = "grey25"
-        # Set the selected variable
-        self.selected = None
-        # Retrieve list of .json files in the directory
-        self.assets_dir = resource_filename('game_randomizer', 'assets')
-        self.json_files = [f[:-5] for f in os.listdir(self.assets_dir)
-                           if f.endswith('.json')]
 
+    TITLE = "Window Title"
+    WIDTH = 200
+    HEIGHT = 200
+    BACKGROUND = 'grey25'
+    LOGO = None
+
+    def __init__(self):
+        """
+        Create the main app window/frame.
+        """
         # Create the main app window
-        self.rootWindow()
+        self.root_window()
         self.frames = {}
-        # Setup/config window
-        self.mainframe = self.frameInit()
-        self.frameLayout()
+        self.mainframe = self.frame_init()
+        self.frame_layout()
 
     def __call__(self):
         """
         Run the GUI.
         """
         self.root.mainloop()
-        return self.selected
 
-    def frameInit(self):
+    def root_window(self):
+        """
+        Set up the root window.
+        """
+        self.root = tk.Tk()
+        self.root.title(self.title)
+        # Only include a logo if one is specified.
+        if self.default_img:
+            ico = tk.PhotoImage(file=self.default_img)
+            self.root.iconphoto(False, ico)
+        self.root.configure(background=self.background_colour)
+        self.root.geometry('%sx%s' % (self.window_width, self.window_height))
+        self.root.resizable(False, False)
+
+    def frame_init(self):
         """
         Creates a frame based on our default settings.
         """
         frame = tk.Frame(self.root, width=self.window_width,
                          height=self.window_height,
                          background=self.background_colour)
-        frame.grid(column=6, row=6, sticky="nsew",)
+        frame.grid(column=0, row=0, sticky="nsew",)
+        return frame
 
-    def rootWindow(self):
+    def frame_layout(self):
         """
-        Set up the root window.
+        Sets the frame layout.
         """
-        self.root = tk.Tk()
-        self.root.title(self.title)
-        self.root.geometry('%sx%s' % (self.window_width, self.window_height))
-        self.root.configure(background=self.background_colour)
-        self.root.resizable(False, False)
+        pass
 
-    def frameLayout(self):
+    def apply_settings(self):
+        """
+        Apple the class settings to the GUI.
+        """
+        # Set the title
+        self.title = self.TITLE
+        # Set up the main window
+        self.default_img = self.LOGO
+        self.window_height = self.HEIGHT
+        self.window_width = self.WIDTH
+        self.background_colour = self.BACKGROUND
+
+
+class JSONGUI(GUI):
+    """
+    GUI client for selecting a .json file.
+    """
+
+    TITLE = "Select Game List"
+    WIDTH = 340
+    HEIGHT = 180
+    BACKGROUND = 'grey25'
+
+    def __init__(self):
+        """
+        Create some variables and set up the GUI.
+        """
+        self.selected = None
+        # Retrieve list of .json files in the directory
+        self.assets_dir = resource_filename('game_randomizer', 'assets')
+        self.json_files = [f[:-5] for f in os.listdir(self.assets_dir)
+                           if f.endswith('.json')]
+        # Apply class specific settings.
+        self.apply_settings()
+        # Do the normal GUI setup
+        super().__init__()
+
+    def __call__(self):
+        """
+        Run the GUI, return the selected .json file.
+        """
+        super().__call__()
+        return self.selected
+
+    def frame_layout(self):
         """
         Sets the frame layout.
         """
@@ -78,11 +128,10 @@ class SelectJsonGUI(object):
         self.label_dropdown = tk.Label(self.mainframe, text="Select Games: ",
                                        background=self.background_colour,
                                        font=("Arial", 12), fg="white")
-        self.label_dropdown.grid(row=0, column=0, columnspan=2,
-                                 pady=(15, 0), padx=(15, 10))
-
-        # Settings for the dropdown menu
-        self.selected_file = tk.StringVar(self.root)
+        self.label_dropdown.grid(row=1, column=0, columnspan=2,
+                                 padx=10, pady=(20, 10))
+        # Variable to hold the selected file.
+        self.selected_file = tk.StringVar(self.mainframe)
         # Default to jackbox games if it exists, otherwise first in list.
         if self.json_files:
             if 'jackbox_games' in self.json_files:
@@ -93,22 +142,21 @@ class SelectJsonGUI(object):
             self.selected_file.set("No .json files found")
             self.json_files = ["No .json files found"]
         # Set up the dropdown menu.
-        self.dropdown = tk.OptionMenu(self.root, self.selected_file,
+        self.dropdown = tk.OptionMenu(self.mainframe, self.selected_file,
                                       *self.json_files)
         self.dropdown.configure(background=self.background_colour,
                                 highlightcolor=self.background_colour,
                                 highlightthickness=0, width=15,
                                 font=("Arial", 12), fg="white")
-        self.dropdown.grid(row=0, column=2, columnspan=4,
-                           pady=(20, 0), padx=(10, 10))
+        self.dropdown.grid(row=1, column=2, columnspan=3)
 
         # Label for assets folder.
         self.label_open_folder = tk.Label(self.mainframe,
                                           text="Browse Game Data: ",
                                           background=self.background_colour,
-                                          font=("Arial", 12), fg="white")
-        self.label_open_folder.grid(row=2, column=0, columnspan=3,
-                                    pady=(30, 0), padx=(10, 0))
+                                          font=("Arial", 12), fg="white",
+                                          height=3)
+        self.label_open_folder.grid(row=2, column=0, columnspan=3, padx=10)
         # Open assets folder button.
         self.open_folder_btn = tk.Button(self.mainframe, text='\U0001F4C1',
                                          command=self.open_folder,
@@ -116,8 +164,7 @@ class SelectJsonGUI(object):
         self.open_folder_btn.configure(background=self.background_colour,
                                        highlightcolor=self.background_colour,
                                        highlightthickness=0)
-        self.open_folder_btn.grid(row=2, column=3,
-                                  pady=(25, 0), padx=(20, 0))
+        self.open_folder_btn.grid(row=2, column=3)
         # Load button
         self.load_btn = tk.Button(self.mainframe, text="Load",
                                   command=self.select,
@@ -125,8 +172,7 @@ class SelectJsonGUI(object):
         self.load_btn.configure(background=self.background_colour,
                                 highlightcolor=self.background_colour,
                                 highlightthickness=0)
-        self.load_btn.grid(row=4, column=1,
-                           pady=(30, 0), padx=(30, 0))
+        self.load_btn.grid(row=3, column=1, pady=15)
         # Exit button
         self.exit_btn = tk.Button(self.mainframe, text="Exit",
                                   command=self.exit,
@@ -134,8 +180,7 @@ class SelectJsonGUI(object):
         self.exit_btn.configure(background=self.background_colour,
                                 highlightcolor=self.background_colour,
                                 highlightthickness=0)
-        self.exit_btn.grid(row=4, column=4,
-                           pady=(30, 0), padx=(0, 30))
+        self.exit_btn.grid(row=3, column=3)
 
     def open_folder(self):
         """
@@ -163,10 +208,16 @@ class SelectJsonGUI(object):
         return self.selected
 
 
-class GUI(object):
+class RandomGUI(GUI):
     """
     GUI client for the game randomizer.
     """
+
+    TITLE = "Game Randomizer"
+    WIDTH = 480
+    HEIGHT = 620
+    BACKGROUND = 'grey25'
+
     def __init__(self, randomizer):
         """
         Set up some basic variables for the GUI
@@ -175,11 +226,17 @@ class GUI(object):
         self.randomizer = randomizer
         # Get our settings.
         self.game_setting = randomizer.settings()
+        self.default_subheader = 'Number of players: '
+        self.default_description = ' '
+        # Set player info
+        self.default_players = self.game_setting['Default_Players']
+        self.max_players = self.game_setting['Max_Players']
+        # Number of random games to display before the actual pick.
+        self.pretty_roll_count = 75
+        # Set size/background
+        self.apply_settings()
         # Set the title based off the json file.
         self.title = self.game_setting['Title']
-        # Set up the window size.
-        self.window_height = 620
-        self.window_width = 480
         # Set up logo path.
         self.default_img = \
             resource_filename('game_randomizer',
@@ -187,49 +244,10 @@ class GUI(object):
                                   'assets',
                                   self.game_setting['Image_Directory'],
                                   self.game_setting['Logo']))
-        self.default_subheader = 'Number of players: '
-        self.default_description = ' '
-        # Set player info
-        self.default_players = self.game_setting['Default_Players']
-        self.max_players = self.game_setting['Max_Players']
-        self.background_colour = "grey25"
-        # Number of random games to display before the actual pick.
-        self.pretty_roll_count = 75
-        # Creat the root app window.
-        self.rootWindow()
-        self.frames = {}
-        # Setup/config window
-        self.mainframe = self.frameInit()
-        self.frameLayout()
+        # Do the normal GUI setup
+        super().__init__()
 
-    def __call__(self):
-        """
-        Run the GUI.
-        """
-        self.root.mainloop()
-
-    def rootWindow(self):
-        """
-        Set up the root window.
-        """
-        self.root = tk.Tk()
-        self.root.title(self.title)
-        ico = tk.PhotoImage(file=self.default_img)
-        self.root.iconphoto(False, ico)
-        self.root.configure(background=self.background_colour)
-        self.root.geometry('%sx%s' % (self.window_width, self.window_height))
-
-    def frameInit(self):
-        """
-        Creates a frame based on our default settings.
-        """
-        frame = tk.Frame(self.root, width=self.window_width,
-                         height=self.window_height,
-                         background=self.background_colour)
-        frame.grid(column=0, row=0, sticky="nsew",)
-        return frame
-
-    def frameLayout(self):
+    def frame_layout(self):
         """
         Sets the frame layout.
         """

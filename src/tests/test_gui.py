@@ -2,14 +2,14 @@ import unittest
 from .. import gui
 
 
-class TestSelectJsonGUI(unittest.TestCase):
+class TestJSONGUI(unittest.TestCase):
 
     def test_default_json_files(self):
         """
         Test that asset data exists and the defaults are listed in json_files.
         """
         # Instantiate the SelectJsonGUI
-        app = gui.SelectJsonGUI()
+        app = gui.JSONGUI()
 
         # Check that all default options are in json_files
         self.assertIn('unit_tests', app.json_files)
@@ -21,7 +21,7 @@ class TestSelectJsonGUI(unittest.TestCase):
         Test that the select() function sets the JSON file properly.
         """
         # Instantiate the SelectJsonGUI
-        app = gui.SelectJsonGUI()
+        app = gui.JSONGUI()
 
         # Set the dropdown menu value to the unit_tests.
         app.selected_file.set('unit_tests')
@@ -37,7 +37,7 @@ class TestSelectJsonGUI(unittest.TestCase):
         Test that select_and_exit sets the selected attribute properly.
         """
         # Instantiate the SelectJsonGUI
-        app = gui.SelectJsonGUI()
+        app = gui.JSONGUI()
 
         # Set the selected_file StringVar to a known value
         app.selected_file.set('unit_tests')
